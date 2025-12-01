@@ -1,25 +1,30 @@
 # ==========================================
-# ENVIRONMENT VARIABLES & SECRETS
+# 🔒 SECURITY: Environment & Credentials (NEVER COMMIT!)
 # ==========================================
 .env
 .env.local
 .env.*.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.development
+.env.test
+.env.production
+.env.example.local
 credentials.json
-**/config/keys.js
-**/config/secrets.js
-**/apiKeys.js
 secrets.json
 *.pem
 *.key
 *.pub
 private_key.json
 service_account.json
+**/config/keys.js
+**/config/secrets.js
+**/apiKeys.js
+**/urls.config.js
+**/endpoints.js
+**/api-config.js
+**/server-urls.js
 
 # ==========================================
-# Node.js / Backend
+# 📦 Node.js / Backend Dependencies
 # ==========================================
 node_modules/
 npm-debug.log*
@@ -28,62 +33,64 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 yarn.lock
-dist/
-backend/dist/
-backend/build/
 .npm
 .eslintcache
 .stylelintcache
 *.tsbuildinfo
 
 # ==========================================
-# LARGE DATA FILES (NEVER COMMIT!)
+# 🚀 Backend Build & Output
 # ==========================================
-backend/data/*.csv
-backend/data/*.json
-backend/data/*.xlsx
-backend/data/*.xls
-data/*.csv
-data/*.json
-*.csv
-*.xlsx
-*.xls
-uploads/
+backend/.env
+backend/.env.local
+backend/.env.*.local
+backend/node_modules/
+backend/dist/
+backend/build/
+backend/logs/
+backend/temp/
 backend/uploads/
-frontend/uploads/
+backend/public/uploads/
+backend/data/*.json
 
 # ==========================================
-# LOGS
+# 📱 Flutter / Frontend Build & Cache
 # ==========================================
-logs/
-*.log
-npm-debug.log
-npm-error.log
-yarn-debug.log
-yarn-error.log
-lerna-debug.log
+frontend/.packages
+frontend/pubspec.lock
+frontend/build/
+frontend/coverage/
+frontend/.dart_tool/
+frontend/.fvm/
+
+# Global Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+coverage/
+.fvm/
+fvm_config.json
+*.g.dart
+*.freezed.dart
+*.config.dart
+*.pb.dart
+*.generated.dart
+*.mocks.dart
+*.chopper.dart
 
 # ==========================================
-# OPERATING SYSTEM FILES
-# ==========================================
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-Desktop.ini
-
-# ==========================================
-# IDE & EDITOR FILES
+# 🎨 IDE & Editor Files
 # ==========================================
 # VS Code
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/cSpell.json
 *.code-workspace
-.vscode/launch.json
-.vscode/settings.json
-.vscode/extensions.json
 
 # IntelliJ / Android Studio
 .idea/
@@ -95,8 +102,8 @@ Desktop.ini
 .c9/
 *.launch
 .settings/
-*.sublime-workspace
 *.sublime-project
+*.sublime-workspace
 
 # Vim/Neovim
 .vim/
@@ -106,19 +113,37 @@ Desktop.ini
 .netrwhist
 
 # ==========================================
-# TEMPORARY & CACHE FILES
+# 🖥️ Operating System Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+*.cab
+*.msi
+.directory
+
+# ==========================================
+# 📝 Temporary & Cache Files
 # ==========================================
 temp/
 tmp/
+/tmp
 *.tmp
 *.bak
 *.backup
 .cache/
-.gradle
-.DS_Store
+.CDN
+/out-tsc
 
 # ==========================================
-# DATABASE & CACHE
+# 💾 Database & Cache Files
 # ==========================================
 *.sqlite
 *.sqlite3
@@ -130,13 +155,19 @@ mongo_data/
 .redis/
 
 # ==========================================
-# Docker
+# 📋 Logs & Debug Files
+# ==========================================
+logs/
+*.log
+
+# ==========================================
+# 🐳 Docker Files
 # ==========================================
 docker-compose.override.yml
 .dockerignore
 
 # ==========================================
-# Platform Specific
+# 🤖 Platform Specific Build Files
 # ==========================================
 
 # Android
@@ -162,6 +193,7 @@ ios/**/.symlinks/
 ios/**/.generated/
 ios/**/.dart_tool/
 ios/**/.ios
+ios/Runner/GeneratedPluginRegistrant.*
 
 # macOS
 macos/Flutter/Flutter-Release.xcconfig
@@ -187,22 +219,24 @@ linux/flutter/ephemeral/
 web/plugins.js
 
 # ==========================================
-# Build & Distribution
+# 📦 Build & Distribution Outputs
 # ==========================================
 dist/
 build/
+/build
+/debug
+/release
 *.apk
 *.aab
 *.ipa
 *.app
 *.dmg
 *.exe
-*.msi
 *.zip
 release/
 
 # ==========================================
-# CI/CD & Development Tools
+# 🔄 CI/CD & Development Tools
 # ==========================================
 .github/workflows/*.env
 .gitlab-ci.local.yml
@@ -210,53 +244,25 @@ release/
 .circleci/env.local
 
 # ==========================================
-# Documentation Build Files
+# 📚 Documentation & Build Files
 # ==========================================
 docs/_build/
 site/
-
-# ==========================================
-# Test Coverage
-# ==========================================
-coverage/
-.coverage
-.coverage.*
-htmlcov/
-
-# ==========================================
-# Generated Files (Keep but don't commit versions)
-# ==========================================
-# These are generated at build time
-*.pb.dart
-*.config.dart
-*.g.dart
-*.freezed.dart
-*.chopper.dart
-
-# ==========================================
-# Misc Development Files
-# ==========================================
 .todo
 TODO.md
 NOTES.md
-*.sublime-project
-*.sublime-workspace
 .grunt/
-.CDN
-.env.example.local
 
 # ==========================================
-# VSCode Specific
+# 🧪 Test Coverage Reports
 # ==========================================
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/cSpell.json
+coverage/
+htmlcov/
+.coverage
+.coverage.*
 
 # ==========================================
-# Python (if any backend scripts)
+# 🐍 Python Virtual Environments
 # ==========================================
 __pycache__/
 *.py[cod]
@@ -266,110 +272,6 @@ env/
 venv/
 ENV/
 .venv
-
-# ==========================================
-# Project Specific
-# ==========================================
-
-# ==========================================
-# Backend - Environment & Dependencies
-# ==========================================
-backend/.env
-backend/.env.local
-backend/.env.*.local
-backend/node_modules/
-backend/dist/
-backend/logs/
-backend/temp/
-backend/uploads/
-backend/public/uploads/
-
-# ==========================================
-# Backend - DATASET (NEVER PUSH TO GITHUB!)
-# ==========================================
-# Hospital data - too large for GitHub
-backend/data/hospitals.csv
-backend/data/*.csv
-backend/data/*.json
-backend/data/*.xlsx
-backend/data/imports/
-backend/data/exports/
-backend/data/backups/
-
-# ==========================================
-# Frontend - Build & Cache Files (LARGE!)
-# ==========================================
-# Flutter build output
-frontend/build/
-frontend/.dart_tool/
-frontend/.packages
-frontend/pubspec.lock
-
-# Generated code
-frontend/lib/**/*.g.dart
-frontend/lib/**/*.freezed.dart
-frontend/lib/**/*.config.dart
-frontend/lib/**/*.chopper.dart
-
-# Coverage
-frontend/coverage/
-frontend/test/**/*.g.dart
-
-# ==========================================
-# Frontend - Platform-Specific Builds (VERY LARGE!)
-# ==========================================
-# Don't push platform builds - they're huge!
-frontend/android/build/
-frontend/android/.gradle/
-frontend/ios/Pods/
-frontend/ios/Flutter/
-frontend/ios/Pods/**
-frontend/macos/Flutter/
-frontend/windows/flutter/
-frontend/linux/flutter/
-frontend/web/
-
-# Flutter machine-specific files
-frontend/.fvm/
-frontend/fvm_config.json
-frontend/flutter_export_environment.sh
-
-# Frontend temp files
-frontend/temp/
-frontend/tmp/
-frontend/.pub-cache/
-
-# ==========================================
-# Root Level - Build & Distribution
-# ==========================================
-.env
-*.env
-dist/
-build/
-coverage/
-logs/
-/dist
-/tmp
-/out-tsc
-/build
-/debug
-/release
-
-# System Files
-.DS_Store
-Thumbs.db
-
-# URLs and Endpoints
-**/urls.config.js
-**/endpoints.js
-**/api-config.js
-**/server-urls.js
-
-# Generated files
-*.generated.dart
-*.freezed.dart
-*.g.dart
-*.mocks.dart
 
 # Local configuration
 local.properties
