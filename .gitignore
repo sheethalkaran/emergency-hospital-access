@@ -1,0 +1,355 @@
+# ==========================================
+# Environment Variables (NEVER COMMIT THESE!)
+# ==========================================
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+node_modules/
+.env
+build/
+frontend/build/
+.DS_Store
+
+# ==========================================
+# Sensitive Files & Credentials
+# ==========================================
+credentials.json
+**/config/keys.js
+**/config/secrets.js
+**/apiKeys.js
+secrets.json
+*.pem
+*.key
+*.pub
+private_key.json
+service_account.json
+
+# ==========================================
+# Node.js / Backend
+# ==========================================
+node_modules/
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+dist/
+build/
+.npm
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ==========================================
+# Flutter / Frontend
+# ==========================================
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+coverage/
+.fvm/
+fvm_config.json
+
+# Build outputs
+build/
+.packages
+.pub-cache/
+.pub/
+*.g.dart
+*.freezed.dart
+*.config.dart
+
+# ==========================================
+# IDE & Editor Files
+# ==========================================
+# VS Code
+.vscode/
+*.code-workspace
+.vscode/launch.json
+.vscode/settings.json
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Vim/Neovim
+.vim/
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+.directory
+Thumbs.db
+
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# Temporary Files
+# ==========================================
+temp/
+tmp/
+*.tmp
+*.bak
+*.backup
+*.swp
+*~
+.cache/
+
+# ==========================================
+# Database & Cache
+# ==========================================
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+dump.rdb
+.mongodb/
+mongo_data/
+.redis/
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log
+npm-debug.log
+npm-error.log
+yarn-debug.log
+yarn-error.log
+
+# ==========================================
+# OS & System Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.cab
+*.msi
+
+# ==========================================
+# Docker
+# ==========================================
+docker-compose.override.yml
+.dockerignore
+
+# ==========================================
+# Platform Specific
+# ==========================================
+
+# Android
+android/.gradle
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/.idea/
+android/**/*.iml
+android/**/build/
+android/**/captures/
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.modulemap
+ios/.symlinks/
+ios/.generated/
+ios/Flutter/flutter_export_environment.sh
+ios/Pods/
+ios/Pods/**
+ios/**/.symlinks/
+ios/**/.generated/
+ios/**/.dart_tool/
+ios/**/.ios
+
+# macOS
+macos/Flutter/Flutter-Release.xcconfig
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/**/.symlinks/
+macos/**/.generated/
+macos/**/.dart_tool/
+macos/Flutter/ephemeral/
+
+# Windows
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugin_registrant.h
+windows/flutter/generated_plugins.cmake
+windows/flutter/ephemeral/
+
+# Linux
+linux/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.h
+linux/flutter/generated_plugins.cmake
+linux/flutter/ephemeral/
+
+# Web
+web/plugins.js
+
+# ==========================================
+# Build & Distribution
+# ==========================================
+dist/
+build/
+*.apk
+*.aab
+*.ipa
+*.app
+*.dmg
+*.exe
+*.msi
+*.zip
+release/
+
+# ==========================================
+# CI/CD & Development Tools
+# ==========================================
+.github/workflows/*.env
+.gitlab-ci.local.yml
+.travis/env.local
+.circleci/env.local
+
+# ==========================================
+# Documentation Build Files
+# ==========================================
+docs/_build/
+site/
+
+# ==========================================
+# Test Coverage
+# ==========================================
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+
+# ==========================================
+# Generated Files (Keep but don't commit versions)
+# ==========================================
+# These are generated at build time
+*.pb.dart
+*.config.dart
+*.g.dart
+*.freezed.dart
+*.chopper.dart
+
+# ==========================================
+# Misc Development Files
+# ==========================================
+.todo
+TODO.md
+NOTES.md
+*.sublime-project
+*.sublime-workspace
+.grunt/
+.CDN
+.env.example.local
+
+# ==========================================
+# VSCode Specific
+# ==========================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/cSpell.json
+
+# ==========================================
+# Python (if any backend scripts)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# ==========================================
+# Project Specific
+# ==========================================
+# Backend
+backend/.env
+backend/.env.local
+backend/.env.*.local
+backend/node_modules/
+backend/dist/
+backend/logs/
+backend/temp/
+backend/uploads/
+backend/data/*.json
+backend/public/uploads/
+
+# Frontend
+frontend/build/
+frontend/.packages
+frontend/pubspec.lock
+frontend/coverage/
+frontend/.dart_tool/
+
+# Root level
+.env
+*.env
+dist/
+build/
+coverage/
+logs/
+/dist
+/tmp
+/out-tsc
+/build
+/debug
+/release
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# URLs and Endpoints
+**/urls.config.js
+**/endpoints.js
+**/api-config.js
+**/server-urls.js
+
+# Generated files
+*.generated.dart
+*.freezed.dart
+*.g.dart
+*.mocks.dart
+
+# Local configuration
+local.properties
+google-services.json
+GoogleService-Info.plist
