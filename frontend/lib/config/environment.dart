@@ -2,7 +2,7 @@
 class Environment {
   // ===== PRODUCTION (Update this with your Render backend URL) =====
   static const String productionApiUrl =
-      'https://hospital-search-api.onrender.com/api';
+      'https://hospital-search-api.onrender.com';
 
   // ===== DEVELOPMENT =====
   static const String developmentApiUrl = 'http://localhost:3000/api';
