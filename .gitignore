@@ -1,22 +1,12 @@
 # ==========================================
-# Environment Variables (NEVER COMMIT THESE!)
+# ENVIRONMENT VARIABLES & SECRETS
 # ==========================================
 .env
 .env.local
 .env.*.local
-.env.development
-.env.test
-.env.production
-
-node_modules/
-.env
-build/
-frontend/build/
-.DS_Store
-
-# ==========================================
-# Sensitive Files & Credentials
-# ==========================================
+.env.development.local
+.env.test.local
+.env.production.local
 credentials.json
 **/config/keys.js
 **/config/secrets.js
@@ -39,42 +29,61 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 dist/
-build/
+backend/dist/
+backend/build/
 .npm
 .eslintcache
 .stylelintcache
 *.tsbuildinfo
 
 # ==========================================
-# Flutter / Frontend
+# LARGE DATA FILES (NEVER COMMIT!)
 # ==========================================
-# Flutter
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-pubspec.lock
-coverage/
-.fvm/
-fvm_config.json
-
-# Build outputs
-build/
-.packages
-.pub-cache/
-.pub/
-*.g.dart
-*.freezed.dart
-*.config.dart
+backend/data/*.csv
+backend/data/*.json
+backend/data/*.xlsx
+backend/data/*.xls
+data/*.csv
+data/*.json
+*.csv
+*.xlsx
+*.xls
+uploads/
+backend/uploads/
+frontend/uploads/
 
 # ==========================================
-# IDE & Editor Files
+# LOGS
+# ==========================================
+logs/
+*.log
+npm-debug.log
+npm-error.log
+yarn-debug.log
+yarn-error.log
+lerna-debug.log
+
+# ==========================================
+# OPERATING SYSTEM FILES
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# IDE & EDITOR FILES
 # ==========================================
 # VS Code
 .vscode/
 *.code-workspace
 .vscode/launch.json
 .vscode/settings.json
+.vscode/extensions.json
 
 # IntelliJ / Android Studio
 .idea/
@@ -87,6 +96,7 @@ build/
 *.launch
 .settings/
 *.sublime-workspace
+*.sublime-project
 
 # Vim/Neovim
 .vim/
@@ -95,37 +105,20 @@ build/
 *~
 .netrwhist
 
-# Mac
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-
-# Linux
-.directory
-Thumbs.db
-
 # ==========================================
-# Operating System Files
-# ==========================================
-.DS_Store
-Thumbs.db
-Desktop.ini
-
-# ==========================================
-# Temporary Files
+# TEMPORARY & CACHE FILES
 # ==========================================
 temp/
 tmp/
 *.tmp
 *.bak
 *.backup
-*.swp
-*~
 .cache/
+.gradle
+.DS_Store
 
 # ==========================================
-# Database & Cache
+# DATABASE & CACHE
 # ==========================================
 *.sqlite
 *.sqlite3
@@ -135,29 +128,6 @@ dump.rdb
 .mongodb/
 mongo_data/
 .redis/
-
-# ==========================================
-# Logs
-# ==========================================
-logs/
-*.log
-npm-debug.log
-npm-error.log
-yarn-debug.log
-yarn-error.log
-
-# ==========================================
-# OS & System Files
-# ==========================================
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-*.cab
-*.msi
 
 # ==========================================
 # Docker
@@ -300,7 +270,10 @@ ENV/
 # ==========================================
 # Project Specific
 # ==========================================
-# Backend
+
+# ==========================================
+# Backend - Environment & Dependencies
+# ==========================================
 backend/.env
 backend/.env.local
 backend/.env.*.local
@@ -309,17 +282,66 @@ backend/dist/
 backend/logs/
 backend/temp/
 backend/uploads/
-backend/data/*.json
 backend/public/uploads/
 
-# Frontend
+# ==========================================
+# Backend - DATASET (NEVER PUSH TO GITHUB!)
+# ==========================================
+# Hospital data - too large for GitHub
+backend/data/hospitals.csv
+backend/data/*.csv
+backend/data/*.json
+backend/data/*.xlsx
+backend/data/imports/
+backend/data/exports/
+backend/data/backups/
+
+# ==========================================
+# Frontend - Build & Cache Files (LARGE!)
+# ==========================================
+# Flutter build output
 frontend/build/
+frontend/.dart_tool/
 frontend/.packages
 frontend/pubspec.lock
-frontend/coverage/
-frontend/.dart_tool/
 
-# Root level
+# Generated code
+frontend/lib/**/*.g.dart
+frontend/lib/**/*.freezed.dart
+frontend/lib/**/*.config.dart
+frontend/lib/**/*.chopper.dart
+
+# Coverage
+frontend/coverage/
+frontend/test/**/*.g.dart
+
+# ==========================================
+# Frontend - Platform-Specific Builds (VERY LARGE!)
+# ==========================================
+# Don't push platform builds - they're huge!
+frontend/android/build/
+frontend/android/.gradle/
+frontend/ios/Pods/
+frontend/ios/Flutter/
+frontend/ios/Pods/**
+frontend/macos/Flutter/
+frontend/windows/flutter/
+frontend/linux/flutter/
+frontend/web/
+
+# Flutter machine-specific files
+frontend/.fvm/
+frontend/fvm_config.json
+frontend/flutter_export_environment.sh
+
+# Frontend temp files
+frontend/temp/
+frontend/tmp/
+frontend/.pub-cache/
+
+# ==========================================
+# Root Level - Build & Distribution
+# ==========================================
 .env
 *.env
 dist/
