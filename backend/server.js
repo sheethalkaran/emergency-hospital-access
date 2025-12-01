@@ -7,7 +7,7 @@ const path = require('path');
 const { generateConfirmationPDF } = require('./utils/pdfGenerator');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 // Middleware
 app.use(cors());
