@@ -4,7 +4,7 @@ A smart mobile and web application that helps users quickly find and reach the n
 
 ## Overview
 
-### Emergency Hospital Access is a full-stack emergency healthcare application that provides the following functionalities:
+Emergency Hospital Access is a full-stack emergency healthcare application that provides the following functionalities:
 - **Find nearby hospitals instantly** based on current location and distance
 - **Filter by requirements** - Search hospitals with specific facilities and specialties
 - **Check real-time bed availability** - View available emergency beds before reaching the hospital
