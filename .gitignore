@@ -1,31 +1,14 @@
-# ==========================================
-# 🔒 SECURITY: Environment & Credentials (NEVER COMMIT!)
-# ==========================================
+# SECURITY: Environment & Credentials
 .env
 .env.local
 .env.*.local
-.env.development
-.env.test
-.env.production
-.env.example.local
-credentials.json
-secrets.json
 *.pem
 *.key
 *.pub
-private_key.json
-service_account.json
-**/config/keys.js
-**/config/secrets.js
-**/apiKeys.js
-**/urls.config.js
-**/endpoints.js
-**/api-config.js
-**/server-urls.js
+credentials.json
+secrets.json
 
-# ==========================================
-# 📦 Node.js / Backend Dependencies
-# ==========================================
+# Node.js / Backend Dependencies
 node_modules/
 npm-debug.log*
 npm-error.log*
@@ -33,29 +16,18 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 yarn.lock
-.npm
-.eslintcache
-.stylelintcache
-*.tsbuildinfo
 
-# ==========================================
-# 🚀 Backend Build & Output
-# ==========================================
-backend/.env
-backend/.env.local
-backend/.env.*.local
+# Backend Output & Build
 backend/node_modules/
 backend/dist/
 backend/build/
 backend/logs/
 backend/temp/
 backend/uploads/
-backend/public/uploads/
-backend/data/*.json
+backend/data/*.csv
+backend/data/*.xlsx
 
-# ==========================================
-# 📱 Flutter / Frontend Build & Cache
-# ==========================================
+# Flutter / Frontend Build & Cache
 frontend/.packages
 frontend/pubspec.lock
 frontend/build/
@@ -63,7 +35,7 @@ frontend/coverage/
 frontend/.dart_tool/
 frontend/.fvm/
 
-# Global Flutter
+# Global Flutter & Dart Generated Files
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
@@ -78,202 +50,45 @@ fvm_config.json
 *.pb.dart
 *.generated.dart
 *.mocks.dart
-*.chopper.dart
 
-# ==========================================
-# 🎨 IDE & Editor Files
-# ==========================================
-# VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/cSpell.json
-*.code-workspace
-
-# IntelliJ / Android Studio
+# IDE & Editor Files
+.vscode/
 .idea/
 *.iml
-*.iws
-*.ipr
-.project
-.classpath
-.c9/
-*.launch
-.settings/
 *.sublime-project
 *.sublime-workspace
-
-# Vim/Neovim
 .vim/
 *.swp
 *.swo
-*~
-.netrwhist
 
-# ==========================================
-# 🖥️ Operating System Files
-# ==========================================
+# Operating System Files
 .DS_Store
-.DS_Store?
-._*
-.AppleDouble
-.LSOverride
-.Spotlight-V100
-.Trashes
 Thumbs.db
 Desktop.ini
-ehthumbs.db
-*.cab
-*.msi
-.directory
 
-# ==========================================
-# 📝 Temporary & Cache Files
-# ==========================================
+# Temporary & Cache Files
 temp/
 tmp/
-/tmp
 *.tmp
 *.bak
-*.backup
-.cache/
-.CDN
-/out-tsc
-
-# ==========================================
-# 💾 Database & Cache Files
-# ==========================================
-*.sqlite
-*.sqlite3
-*.db
-*.db-journal
-dump.rdb
-.mongodb/
-mongo_data/
-.redis/
-
-# ==========================================
-# 📋 Logs & Debug Files
-# ==========================================
-logs/
 *.log
 
-# ==========================================
-# 🐳 Docker Files
-# ==========================================
-docker-compose.override.yml
-.dockerignore
+# Platform Build Directories
+android/
+ios/
+macos/
+windows/
+linux/
+web/
 
-# ==========================================
-# 🤖 Platform Specific Build Files
-# ==========================================
-
-# Android
-android/.gradle
-android/captures/
-android/gradlew
-android/gradlew.bat
-android/local.properties
-android/.idea/
-android/**/*.iml
-android/**/build/
-android/**/captures/
-
-# iOS
-ios/Flutter/Flutter.framework
-ios/Flutter/Flutter.modulemap
-ios/.symlinks/
-ios/.generated/
-ios/Flutter/flutter_export_environment.sh
-ios/Pods/
-ios/Pods/**
-ios/**/.symlinks/
-ios/**/.generated/
-ios/**/.dart_tool/
-ios/**/.ios
-ios/Runner/GeneratedPluginRegistrant.*
-
-# macOS
-macos/Flutter/Flutter-Release.xcconfig
-macos/Flutter/GeneratedPluginRegistrant.swift
-macos/**/.symlinks/
-macos/**/.generated/
-macos/**/.dart_tool/
-macos/Flutter/ephemeral/
-
-# Windows
-windows/flutter/generated_plugin_registrant.cc
-windows/flutter/generated_plugin_registrant.h
-windows/flutter/generated_plugins.cmake
-windows/flutter/ephemeral/
-
-# Linux
-linux/flutter/generated_plugin_registrant.cc
-linux/flutter/generated_plugin_registrant.h
-linux/flutter/generated_plugins.cmake
-linux/flutter/ephemeral/
-
-# Web
-web/plugins.js
-
-# ==========================================
-# 📦 Build & Distribution Outputs
-# ==========================================
-dist/
+# Build & Distribution
 build/
-/build
-/debug
-/release
-*.apk
-*.aab
-*.ipa
-*.app
-*.dmg
-*.exe
-*.zip
+dist/
 release/
 
-# ==========================================
-# 🔄 CI/CD & Development Tools
-# ==========================================
-.github/workflows/*.env
-.gitlab-ci.local.yml
-.travis/env.local
-.circleci/env.local
-
-# ==========================================
-# 📚 Documentation & Build Files
-# ==========================================
-docs/_build/
-site/
-.todo
-TODO.md
-NOTES.md
-.grunt/
-
-# ==========================================
-# 🧪 Test Coverage Reports
-# ==========================================
-coverage/
-htmlcov/
-.coverage
-.coverage.*
-
-# ==========================================
-# 🐍 Python Virtual Environments
-# ==========================================
-__pycache__/
-*.py[cod]
-*$py.class
-.Python
-env/
+# Python Virtual Environments
 venv/
-ENV/
 .venv
 
 # Local configuration
 local.properties
-google-services.json
-GoogleService-Info.plist

@@ -10,11 +10,9 @@ class ApiService {
 
   // Base URLs for different platforms
   static const List<String> baseUrls = [
-    'http://localhost:3000/api', // For iOS simulator
-    'http://10.0.2.2:3000/api', // For Android emulator
-    'http://127.0.0.1:3000/api', // Alternative localhost
-    // Add your computer's IP for physical device testing
-    // 'http://192.168.1.XXX:3000/api',
+    'http://localhost:3000/api',
+    'http://10.0.2.2:3000/api',
+    'http://127.0.0.1:3000/api',
   ];
 
   static String? _workingBaseUrl;
@@ -33,7 +31,6 @@ class ApiService {
 
     for (String baseUrl in baseUrls) {
       try {
-        print('🔍 Testing connection to: $baseUrl');
         final response = await http
             .get(
               Uri.parse('$baseUrl/health'),
@@ -45,15 +42,10 @@ class ApiService {
             .timeout(const Duration(seconds: 5));
 
         if (response.statusCode == 200) {
-          print('✅ Successfully connected to: $baseUrl');
-          final data = json.decode(response.body);
-          print('📊 Server response: ${data['message']}');
-          print('📊 Total hospitals in DB: ${data['totalHospitals']}');
           _workingBaseUrl = baseUrl;
           return baseUrl;
         }
       } catch (e) {
-        print('❌ Failed to connect to: $baseUrl - ${e.toString()}');
         continue;
       }
     }
@@ -122,10 +114,7 @@ class ApiService {
           throw Exception('Failed to parse JSON response: $e');
         }
 
-        print('🏥 Found ${data.length} hospitals in response');
-
         if (data.isEmpty) {
-          print('⚠️ No hospitals found in database');
           return [];
         }
 
@@ -136,20 +125,10 @@ class ApiService {
             final hospitalData = data[i] as Map<String, dynamic>;
             final hospital = Hospital.fromJson(hospitalData);
             hospitals.add(hospital);
-
-            // Log first few hospitals for debugging
-            if (i < 3) {
-              print(
-                '🏥 Hospital ${i + 1}: ${hospital.name} (${hospital.state})',
-              );
-            }
           } catch (e) {
-            print('⚠️ Failed to parse hospital at index $i: $e');
             continue;
           }
         }
-
-        print('✅ Successfully parsed ${hospitals.length} hospitals');
 
         // Save to cache
         _hospitalCache = hospitals;
@@ -158,11 +137,9 @@ class ApiService {
         return hospitals;
       } else {
         final errorBody = response.body;
-        print('❌ Server error ${response.statusCode}: $errorBody');
         throw Exception('Server error ${response.statusCode}: $errorBody');
       }
     } catch (e) {
-      print('❌ Error in getAllHospitals: ${e.toString()}');
       rethrow;
     }
   }
@@ -177,8 +154,6 @@ class ApiService {
       final baseUrl = await _getWorkingBaseUrl();
       final url =
           '$baseUrl/hospitals/nearby?lat=$latitude&lng=$longitude&radius=$radius';
-
-      print('📡 Fetching nearby hospitals from: $url');
 
       final response = await http
           .get(
@@ -204,7 +179,6 @@ class ApiService {
           throw Exception('Unexpected response format');
         }
 
-        print('🎯 Found ${data.length} nearby hospitals');
         return data.map((json) => Hospital.fromJson(json)).toList();
       } else {
         throw Exception(
@@ -212,7 +186,6 @@ class ApiService {
         );
       }
     } catch (e) {
-      print('❌ Error fetching nearby hospitals: $e');
       rethrow;
     }
   }
@@ -290,7 +263,6 @@ class ApiService {
         );
       }
     } catch (e) {
-      print('❌ Error searching hospitals: $e');
       rethrow;
     }
   }
@@ -320,7 +292,6 @@ class ApiService {
         throw Exception('Hospital not found: ${response.statusCode}');
       }
     } catch (e) {
-      print('❌ Error fetching hospital details: $e');
       rethrow;
     }
   }
@@ -380,14 +351,12 @@ class ApiService {
         throw Exception('Failed to get stats: ${response.statusCode}');
       }
     } catch (e) {
-      print('❌ Error fetching hospital stats: $e');
       rethrow;
     }
   }
 
   // Reset connection (force reconnection)
   static void resetConnection() {
-    print('🔄 Resetting API connection...');
     _workingBaseUrl = null;
   }
 
@@ -407,8 +376,6 @@ class ApiService {
     try {
       final baseUrl = await _getWorkingBaseUrl();
       final url = '$baseUrl/bookings';
-
-      print('📝 Submitting booking for hospital: $hospitalId');
 
       final response = await http
           .post(
@@ -432,7 +399,6 @@ class ApiService {
 
       if (response.statusCode == 201 || response.statusCode == 200) {
         final data = json.decode(response.body);
-        print('✅ Booking created: ${data['booking']['_id']}');
         return data;
       } else {
         throw Exception(
@@ -440,7 +406,6 @@ class ApiService {
         );
       }
     } catch (e) {
-      print('❌ Error submitting booking: $e');
       rethrow;
     }
   }
@@ -450,8 +415,6 @@ class ApiService {
     try {
       final baseUrl = await _getWorkingBaseUrl();
       final url = '$baseUrl/bookings/$bookingId/confirm';
-
-      print('✅ Confirming booking: $bookingId');
 
       final response = await http
           .post(
@@ -465,7 +428,6 @@ class ApiService {
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-        print('✅ Booking confirmed successfully');
         return data;
       } else {
         throw Exception(
@@ -473,7 +435,6 @@ class ApiService {
         );
       }
     } catch (e) {
-      print('❌ Error confirming booking: $e');
       rethrow;
     }
   }
@@ -502,7 +463,6 @@ class ApiService {
         throw Exception('Failed to get booking: ${response.statusCode}');
       }
     } catch (e) {
-      print('❌ Error fetching booking details: $e');
       rethrow;
     }
   }
@@ -513,12 +473,9 @@ class ApiService {
       final baseUrl = await _getWorkingBaseUrl();
       final url = '$baseUrl/bookings/$bookingId/download-confirmation';
 
-      print('📥 Downloading confirmation PDF...');
-
       // Open the PDF URL in browser - browser will auto-download
       if (await canLaunchUrl(Uri.parse(url))) {
         await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
-        print('✅ PDF download initiated from URL');
         return 'success';
       } else {
         // Fallback: make request to get bytes
@@ -527,14 +484,12 @@ class ApiService {
             .timeout(const Duration(seconds: 30));
 
         if (response.statusCode == 200) {
-          print('✅ PDF bytes received - ${response.bodyBytes.length} bytes');
           return 'success';
         } else {
           throw Exception('Failed to download PDF: ${response.statusCode}');
         }
       }
     } catch (e) {
-      print('❌ Error downloading PDF: $e');
       rethrow;
     }
   }
@@ -544,8 +499,6 @@ class ApiService {
     try {
       final baseUrl = await _getWorkingBaseUrl();
       final url = '$baseUrl/bookings/$bookingId/cancel';
-
-      print('❌ Cancelling booking: $bookingId');
 
       final response = await http
           .post(
@@ -559,7 +512,6 @@ class ApiService {
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-        print('✅ Booking cancelled successfully');
         return data;
       } else {
         throw Exception(
@@ -567,7 +519,6 @@ class ApiService {
         );
       }
     } catch (e) {
-      print('❌ Error cancelling booking: $e');
       rethrow;
     }
   }

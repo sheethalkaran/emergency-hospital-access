@@ -21,7 +21,6 @@ mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('MongoDB Connected Successfully'))
 .catch(err => console.error('MongoDB Connection Error:', err));
 
 // Hospital Schema with geospatial indexing
@@ -187,8 +186,6 @@ app.get('/api/hospitals/search', async (req, res) => {
       minAvailableBeds,
       searchText
     } = req.query;
-
-    console.log('🔍 Search parameters:', req.query);
 
     const query = {};
 
@@ -650,8 +647,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Hospital Finder API Server running on port ${PORT}`);
-});
+app.listen(PORT, '0.0.0.0', () => {});
 
 module.exports = app;
