@@ -1,18 +1,29 @@
-# Emergency Hospital Access
+# Emergency Hospital Access System
 
-A smart mobile and web application that helps users quickly find and reach the nearest appropriate hospital based on real-time facility availability, bed capacity, and distance, ensuring emergency patients get to the right place at the right time.
+A smart mobile and web application designed to help emergency responders and patients quickly identify and access the most appropriate healthcare facility based on proximity, medical specialties, facility availability, and emergency bed capacity.
+
+## Project Context
+
+This repository contains the **Emergency Hospital Access System**, a key module of the **E-Challan and Emergency Ambulance Services** project.
+
+The parent project aims to enhance emergency response efficiency by addressing common challenges faced by ambulances, such as traffic congestion and delays caused by vehicles failing to provide the right-of-way. The system incorporates real-time ambulance alert mechanisms to notify nearby vehicles, automated detection and enforcement of traffic violations through e-challan generation for vehicles obstructing ambulance movement, and intelligent healthcare support services to assist emergency responders during critical situations.
+
+The **Emergency Hospital Access System** focuses on enabling ambulance personnel and patients to identify suitable hospitals based on factors such as location, available emergency facilities, medical specialties, and bed availability. The application provides features including hospital discovery, emergency bed booking, navigation support, and AI-assisted health guidance to facilitate informed decision-making and improve access to timely medical care.
+
+By integrating emergency traffic management with healthcare accessibility services, the overall solution aims to reduce emergency response times, optimize healthcare resource utilization, and improve patient outcomes.
 
 ## Overview
 
-Emergency Hospital Access is a full-stack emergency healthcare application that provides the following functionalities:
-- **Find nearby hospitals instantly** based on current location and distance
-- **Filter by requirements** - Search hospitals with specific facilities and specialties
-- **Check real-time bed availability** - View available emergency beds before reaching the hospital
-- **Reach the right hospital** - Get precise hospital locations and contact information
-- **Book emergency beds** - Reserve a bed at the selected hospital
-- **Get health guidance** - Integrated AI chatbot for emergency health advice
-- **View on map** - Interactive map showing hospital locations
-- **Download confirmations** - Instant confirmation PDFs for reference
+Emergency Hospital Access System is a full-stack healthcare application that provides the following functionalities:
+
+- **Find Nearby Hospitals Instantly** - Locate hospitals based on the user's current location and proximity.
+- **Filter by Requirements** - Search hospitals using criteria such as facilities, specialties, state, and district.
+- **Check Bed Availability** - View emergency bed availability information before reaching the hospital.
+- **Access Hospital Information** - Obtain detailed hospital information, including contact details and emergency services.
+- **Book Emergency Beds** - Reserve emergency beds through a streamlined booking process.
+- **Receive Health Guidance** - Utilize an AI-powered chatbot for general health guidance and facility recommendations.
+- **Navigate Using Interactive Maps** - View hospital locations and access navigation support through map integration.
+- **Manage Bookings Efficiently** - Track booking details and download confirmation documents for reference.
 
 ## Features
 
@@ -59,7 +70,7 @@ Emergency Hospital Access is a full-stack emergency healthcare application that 
 ## Project Structure
 
 ```
-hospital-search/
+emergency-hospital-access/
 ├── frontend/                          # Flutter Application
 │   ├── lib/
 │   │   ├── main.dart                 # App entry & state management
@@ -100,7 +111,7 @@ hospital-search/
 ```
 
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Hospital Operations
 - `GET /api/health` - Server health check
@@ -161,9 +172,3 @@ hospital-search/
   timestamps: { createdAt, updatedAt }
 }
 ```
-
-
-## Project Context
-
-This application forms an integral component of the E-Challan and Emergency Ambulance Services, with the objective of improving emergency response efficiency through automated vehicle alerting, real-time detection and enforcement of traffic right-of-way violations, and intelligent hospital recommendation based on proximity, medical facilities, and real-time bed availability.
-
