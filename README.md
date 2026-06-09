@@ -165,5 +165,5 @@ hospital-search/
 
 ## Project Context
 
-This application forms an integral component of the IoT-Based Smart Ambulance Assist System, with the objective of improving emergency response efficiency through automated vehicle alerting, real-time detection and enforcement of traffic right-of-way violations, and intelligent hospital recommendation based on proximity, medical facilities, and real-time bed availability.
+This application forms an integral component of the E-Challan and Emergency Ambulance Services, with the objective of improving emergency response efficiency through automated vehicle alerting, real-time detection and enforcement of traffic right-of-way violations, and intelligent hospital recommendation based on proximity, medical facilities, and real-time bed availability.
 
